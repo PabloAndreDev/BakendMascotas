@@ -14,6 +14,7 @@ import adopcionRouter from "./src/routes/adopciones.routes.js";
 import routerNotificaciones from "./src/routes/notificaciones.routes.js";
 import MasMascota from "./src/routes/CargarMasImagenesMascotas.routes.js";
 import cambioPassword from "./src/routes/password.routes.js";
+import {PORT} from './src/db/config.js'
 
 const app = express();
 app.use(cors()); // Si estás usando CORS
@@ -45,6 +46,6 @@ app.use("/cambioPassword",cambioPassword)
 
 app.use(express.static('./public')); // Para servir archivos estáticos (imágenes, etc.)
 
-app.listen(4000, () => {
-    console.log("Servidor se está ejecutando en el puerto 4000");
+app.listen(PORT, () => {
+    console.log("Servidor se está ejecutando en el puerto ", PORT);
 });
